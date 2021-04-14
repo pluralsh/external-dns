@@ -7,8 +7,23 @@ agent:
 blocks:
   - name: Build
     task:
+      secrets:
+      - name: GCP
+      - name: gcp-test
+      - name: plural
+      - name: deploy-key
+      prologue:
+        commands:
+        # Authenticate using the file injected from the secret
+        - gcloud auth activate-service-account --key-file=.secrets/gcp-piazzaapp.json
+        # Don't forget -q to silence confirmation prompts
+        - gcloud auth configure-docker -q
+        - docker login -u mjg@plural.sh -p $PLURAL_ACCESS_TOKEN dkr.plural.sh
+        - checkout
       jobs:
         - name: docker build
           commands:
             - checkout
-            - docker build -t your-image .
+            - docker build --build-arg ARCH="amd64" -t gcr.io/piazzaapp/external-dns:v0.7.6 -t dkr.plural.sh/bootstrap/external-dns:v0.7.6 .
+            - docker push gcr.io/piazzaapp/external-dns:v0.7.6
+            - docker push dkr.plural.sh/bootstrap/external-dns:v0.7.6
