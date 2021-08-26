@@ -185,6 +185,8 @@ type Config struct {
 	GoDaddyTTL                        int64
 	GoDaddyOTE                        bool
 	OCPRouterName                     string
+	PluralCluster											string
+	PluralProvider										string
 }
 
 var defaultConfig = &Config{
@@ -312,6 +314,8 @@ var defaultConfig = &Config{
 	GoDaddySecretKey:            "",
 	GoDaddyTTL:                  600,
 	GoDaddyOTE:                  false,
+	PluralCluster:               "",
+	PluralProvider: 						 "",
 }
 
 // NewConfig returns new Config object
@@ -505,6 +509,10 @@ func (cfg *Config) ParseFlags(args []string) error {
 	// Flags related to TransIP provider
 	app.Flag("transip-account", "When using the TransIP provider, specify the account name (required when --provider=transip)").Default(defaultConfig.TransIPAccountName).StringVar(&cfg.TransIPAccountName)
 	app.Flag("transip-keyfile", "When using the TransIP provider, specify the path to the private key file (required when --provider=transip)").Default(defaultConfig.TransIPPrivateKeyFile).StringVar(&cfg.TransIPPrivateKeyFile)
+
+	// Flags related to the Plural provider
+	app.Flag("plural-cluster", "When using the plural provider, specify the cluster name you're running with").Default(defaultConfig.PluralCluster).StringVar(&cfg.PluralCluster)
+	app.Flag("plural-provider", "When using the plural provider, specify the provider name you're running with").Default(defaultConfig.PluralProvider).StringVar(&cfg.PluralProvider)
 
 	// Flags related to policies
 	app.Flag("policy", "Modify how DNS records are synchronized between sources and providers (default: sync, options: sync, upsert-only, create-only)").Default(defaultConfig.Policy).EnumVar(&cfg.Policy, "sync", "upsert-only", "create-only")
