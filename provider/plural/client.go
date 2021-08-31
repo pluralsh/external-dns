@@ -35,8 +35,8 @@ const DnsRecordFragment = `
 
 var dnsRecordsQuery = fmt.Sprintf(`
 	query DnsRecords($cluster: String!, $provider: Provider!) {
-		dnsRecods(cluster: $cluster, provider: $provider, first: 500) {
-			...DnsRecord
+		dnsRecords(cluster: $cluster, provider: $provider, first: 500) {
+			edges { node { ...DnsRecord } }
 		}
 	}
 	%s
@@ -52,7 +52,7 @@ var createDnsRecord = fmt.Sprintf(`
 `, DnsRecordFragment)
 
 var deleteDnsRecord = fmt.Sprintf(`
-	mutation Delete($name: String!, $type; DnsRecordType!) {
+	mutation Delete($name: String!, $type: DnsRecordType!) {
 		deleteDnsRecord(name: $name, type: $type) {
 			...DnsRecord
 		}
