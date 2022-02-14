@@ -63,7 +63,7 @@ require (
 	istio.io/client-go v0.0.0-20210128182905-ee2edd059e02
 	k8s.io/api v0.23.3
 	k8s.io/apimachinery v0.23.3
-	k8s.io/client-go v0.23.1
+	k8s.io/client-go v0.23.3
 )
 
 require (
