@@ -30,7 +30,7 @@ require (
 	github.com/hooklift/gowsdl v0.5.0
 	github.com/infobloxopen/infoblox-go-client v1.1.1
 	github.com/linki/instrumented_http v0.3.0
-	github.com/linode/linodego v0.32.2
+	github.com/linode/linodego v1.14.1
 	github.com/maxatome/go-testdeep v1.11.0
 	github.com/miekg/dns v1.1.36-0.20210109083720-731b191cabd1
 	github.com/nesv/go-dynect v0.6.0
@@ -44,7 +44,7 @@ require (
 	github.com/prometheus/client_golang v1.11.0
 	github.com/scaleway/scaleway-sdk-go v1.0.0-beta.7.0.20210127161313-bd30bebeac4f
 	github.com/sirupsen/logrus v1.8.1
-	github.com/stretchr/testify v1.7.0
+	github.com/stretchr/testify v1.7.1
 	github.com/transip/gotransip/v6 v6.14.0
 	github.com/ukfast/sdk-go v1.4.23
 	github.com/ultradns/ultradns-sdk-go v0.0.0-20200616202852-e62052662f60
@@ -149,7 +149,7 @@ require (
 	google.golang.org/protobuf v1.27.1 // indirect
 	gopkg.in/go-playground/validator.v9 v9.27.0 // indirect
 	gopkg.in/inf.v0 v0.9.1 // indirect
-	gopkg.in/ini.v1 v1.66.2 // indirect
+	gopkg.in/ini.v1 v1.66.6 // indirect
 	gopkg.in/resty.v1 v1.12.0 // indirect
 	gopkg.in/yaml.v3 v3.0.0-20210107192922-496545a6307b // indirect
 	istio.io/gogo-genproto v0.0.0-20190930162913-45029607206a // indirect
